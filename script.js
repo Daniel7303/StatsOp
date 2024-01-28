@@ -20,3 +20,21 @@ class DescriptiveStatistics {
       const sortedNumbers = numbers.slice().sort((a, b) => a - b);
       return sortedNumbers[sortedNumbers.length - 1] - sortedNumbers[0];
     }
+
+    
+    static calculateVariance(numbers) {
+      const meanValue = DescriptiveStatistics.calculateMean(numbers);
+      const squaredDifferences = numbers.map((num) => (num - meanValue) ** 2);
+      return DescriptiveStatistics.calculateMean(squaredDifferences);
+    }
+  
+    static calculateStandardDeviation(numbers) {
+      return Math.sqrt(DescriptiveStatistics.calculateVariance(numbers));
+    }
+  }
+  
+  const dataset = [12, 15, 8, 10, 5, 14, 7, 9];
+  console.log("Mean:", DescriptiveStatistics.calculateMean(dataset));
+  console.log("Median:", DescriptiveStatistics.calculateMedian(dataset));
+  console.log("Range:", DescriptiveStatistics.calculateRange(dataset));
+  console.log("Standard Deviation:", DescriptiveStatistics.calculateStandardDeviation(dataset));
