@@ -20,5 +20,3 @@ class DescriptiveStatistics {
       const sortedNumbers = numbers.slice().sort((a, b) => a - b);
       return sortedNumbers[sortedNumbers.length - 1] - sortedNumbers[0];
     }
-  
-  
